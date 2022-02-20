@@ -1,0 +1,10 @@
+
+[
+	{
+		"mariadb-HOST" : "localhost",
+		"mariadb-PORT" : 3306,
+		"mariadb-USER" : "jason",
+		"mariadb-PASS" : "6121",
+		"mariadb-BASE" : "alumnos_db"
+	}
+]

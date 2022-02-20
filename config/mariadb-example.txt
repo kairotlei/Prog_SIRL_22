@@ -1,0 +1,10 @@
+
+[
+	{
+		"mariadb-HOST" : "localhost",				# location of the DB. In this case, the same computer/VM.
+		"mariadb-PORT" : 3306,						# don't change port unless needed.
+		"mariadb-USER" : "Mariadb_User",			# user of mariadb, needs privileges.
+		"mariadb-PASS" : "Super_Secret_Password",	# password, in plain text.
+		"mariadb-BASE" : "db_name"					# name of the database in mariadb (use SHOW DATABASES)
+	}
+]

@@ -1,0 +1,130 @@
+<UserScreen>:
+    name: "UserScreen"
+    MDBoxLayout:
+        orientation: "vertical"
+        
+        # Barra de opciones
+        MDToolbar:
+            title: " Gestión de alumnos"
+            elevation: 10
+            right_action_items: [["exit-to-app", lambda x: root.exit_app(), "Cerrar"]]
+            left_action_items: [["folder-open", lambda x: root.read_data_this(user_name.text), "Leer datos de *NOMBRE"],  ["floppy", lambda x: root.save_data(user_name.text, user_surname.text, user_course.text, user_email.text, user_email_domain.text, user_telegram.text), "Guardar"]]
+            
+            
+        MDFloatLayout:
+            orientation: "vertical"
+            
+            MDCard:
+                id: user_card
+                size_hint: .9, .9
+                pos_hint: {"center_x":.5, "center_y":.5,}
+                
+                MDGridLayout:
+                    cols: 2
+                    
+                    MDFloatLayout:
+                        orientation: "vertical"
+                        spacing: 25
+                            
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            pos_hint: {"center_x":.5, "center_y":.7}
+                            size_hint: .75, .13
+
+                            MDTextField:
+                                id: user_name
+                                hint_text: "* Nombre"
+                                icon_right: "account"
+                                font_size: 23
+                                multiline: False
+                                on_text_validate: user_surname.focus = True
+                                max_text_length: 25
+                                write_tab: False
+
+
+                            MDIconButton:
+                                id: search_button
+                                icon: "text-search"
+                                spacing: 15
+                                on_press: root.menu.open()
+
+
+                            
+                        MDTextField:
+                            id: user_surname
+                            hint_text: "Apellidos"
+                            icon_right: "account"
+                            font_size: 23
+                            multiline: False
+                            write_tab: False
+                            pos_hint: {"center_x":.5, "center_y":.6}
+                            size_hint: .75, .13
+                            on_text_validate: user_course.focus = True
+                            max_text_length: 50
+                            
+                        MDTextField:
+                            id: user_course
+                            hint_text: "Curso"
+                            icon_right: "school"
+                            font_size: 23
+                            multiline: False
+                            write_tab: False
+                            on_text_validate: user_email.focus = True
+                            pos_hint: {"center_x":.5, "center_y":.5}
+                            size_hint: .75, .13
+                            max_text_length: 15
+
+                        MDFloatLayout:
+                            orientation: 'horizontal'
+                            
+                            MDTextField:
+                                id: user_email
+                                hint_text: "micorreo"
+                                font_size: 17
+                                multiline: False
+                                write_tab: False
+                                on_text_validate: user_email_domain.focus = True
+                                pos_hint: {"center_x":.415, "center_y":.45}
+                                size_hint: .35, .13
+                                halign: "right"
+                                max_text_length: 55
+
+                            MDLabel:
+                                text: "@"
+                                font_size: 15
+                                pos_hint: {"center_x":.62, "center_y":.45}
+                                size_hint: .05, .13
+                            
+                            
+                            MDTextField:
+                                id: user_email_domain
+                                hint_text: "email.com"
+                                icon_right: "email"
+                                font_size: 17
+                                multiline: False
+                                write_tab: False
+                                on_text_validate: user_telegram.focus = True
+                                pos_hint: {"center_x":.82, "center_y":.45}
+                                size_hint: .33, .13
+                                max_text_length: 20
+
+                            
+                            
+                        MDTextField:
+                            id: user_telegram
+                            hint_text: "Telegram"
+                            icon_right: "telegram"
+                            font_size: 23
+                            multiline: False
+                            write_tab: False
+                            pos_hint: {"center_x":.5, "center_y":.3}
+                            size_hint: .75, .13
+                            on_text_validate: root.save_data(user_name.text, user_surname.text, user_course.text, user_email.text, user_email_domain.text, user_telegram.text)
+                            max_text_length: 15
+                            
+                        
+                    MDBoxLayout:
+                        Image:
+                            source: "res/id_icon.png"
+                            size: .3, .3
